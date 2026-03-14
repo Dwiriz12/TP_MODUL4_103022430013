@@ -26,6 +26,33 @@ public class KodePos
     }
 }
 
+class DoorMachine
+{
+    enum State {Terkunci, Terbuka}
+
+    private State state;
+
+    public DoorMachine()
+    {
+        state = State.Terkunci;
+        Console.WriteLine("Pintu terkunci");
+    }
+
+    public void BukaPintu()
+    {
+        if (state == State.Terkunci)
+        {
+            state = State.Terbuka;
+            Console.WriteLine("Pintu tidak terkunci");
+        }
+        else
+        {
+            state = State.Terkunci;
+            Console.WriteLine("Pintu terkunci");
+        }
+    }
+}
+
 class Program
 {
     static void Main(string[] args)
@@ -42,5 +69,18 @@ class Program
         Console.WriteLine("Sekejati    : " + kode.getKodePos("Sekejati"));
         Console.WriteLine("Kebonwaru   : " + kode.getKodePos("Kebonwaru"));
         Console.WriteLine("Maleer      : " + kode.getKodePos("Maleer"));
+
+
+        Console.WriteLine("\nSimulasi DoorMachine:");
+
+        DoorMachine pintu = new DoorMachine();
+        pintu.BukaPintu();
+        pintu.BukaPintu();
+       
     }
 }
+
+
+
+
+
